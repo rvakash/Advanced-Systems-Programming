@@ -16,3 +16,8 @@ Command Line Arguments and outputs
 
 Step1 : make
 Step2 : ./Combiner <Number of Slots> <Number of unique UserIDs> < <Input file>
+
+
+III. Description
+----------------
+Read Assignment3.pdf
