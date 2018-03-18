@@ -1,0 +1,23 @@
+Name : Akash R Vasishta 
+UFID : 53955080
+Date : 03/18/2018
+
+I. Files Included
+-----------------
+Combiner.c	 - Implements Producer-Consumer design to the previous mapper reducer problem
+Makefile 	 - Consists of all necessary commands to run the "Combiner" program in one step
+input.txt	 - This file has a list of inputs to the "Combiner" program
+
+
+II. How to run the Combiner
+---------------------------
+
+Command Line Arguments and outputs
+
+Step1 : make
+Step2 : ./Combiner <Number of Slots> <Number of unique UserIDs> < <Input file>
+
+
+III. Description
+----------------
+Read Assignment4.pdf
