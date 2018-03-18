@@ -141,24 +141,17 @@ int updateScore(struct TopicTotal topictotal[50], char* userId, char* topic1, ch
 void mapper(){
     char inputTuple[30] = {};
     char buf[30] = {};
-    char* oB;
+    char* oB, *cB, *co, *each, *userId, *line, *eacharray, *outputTuple;
     oB = "(";
-    char* cB;
-    char* co = ",";
+    co = ",";
     cB = ")";
-    int score;
-    char *each;
-    char *userId;
+    int score, u, pad, i, j, rdrNum;
     size_t len = 0;
     ssize_t read;
-    char * line = NULL;
-    char *eacharray;
-    int u = 0;
-    char *outputTuple;
-    int pad = 0;
-    int i, j, rdrNum = 0;
+    line = NULL;
+    u = pad = rdrNum = 0;
     long r;
-	userToRdrMap = malloc(numOfReducers * sizeof(char *));
+	  userToRdrMap = malloc(numOfReducers * sizeof(char *));
 
     while (1) {
         read = getline(&line, &len, stdin);
