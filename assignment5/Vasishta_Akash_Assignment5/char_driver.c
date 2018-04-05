@@ -18,7 +18,7 @@
 #define ramdiskSize (size_t) (16 * PAGE_SIZE)
 #define CDEV_IOC_MAGIC 'k'
 #define ASP_CLEAR_BUFF _IO(CDEV_IOC_MAGIC, 1)
-int NUM_DEVICES = 3;
+int numDevices = 3;
 int major = 0;
 static struct class *kachuClass;
 
@@ -31,7 +31,7 @@ struct asp_kachu {
 	// long acc_dir_md;
 };
 
-module_param(NUM_DEVICES, int, S_IRUGO);
+module_param(numDevices, int, S_IRUGO);
 int kachu_open(struct inode *inode, struct file *filp);
 int kachu_release(struct inode *inode, struct file *filp);
 ssize_t kachu_read(struct file *filp, char __user *buf, size_t count, loff_t *f_pos);
@@ -63,7 +63,7 @@ int kachu_open(struct inode *inode, struct file *filp){
 	int majNo = imajor(inode);
 	int minNo = iminor(inode);
 	struct asp_kachu *dev = NULL;
-	if (majNo != major || minNo < 0 || minNo >= NUM_DEVICES){
+	if (majNo != major || minNo < 0 || minNo >= numDevices){
 		printk(KERN_WARNING "No device with minor=%d and major=%d exist\n", minNo, majNo);
 		return -ENODEV; 	// no such device
 	}
@@ -243,17 +243,16 @@ static void kachu_cleanup_module(void){
 	// struct asp_kachu *dev = NULL;
 	int i;
 	if (kachuDevices) {
-	for(i=0; i<NUM_DEVICES; i++){
-		struct asp_kachu *chr_dev = &kachuDevices[i];
+	for(i=0; i<numDevices; i++){
 		device_destroy(kachuClass, MKDEV(major, i));
-		cdev_del(&chr_dev->cdev);
-		kfree(&chr_dev->ramdisk);
+		cdev_del(&kachuDevices[i].cdev);
+		kfree(&kachuDevices[i].ramdisk);
 	}
 	}
 	kfree(kachuDevices);
 	if (kachuClass)
 		class_destroy(kachuClass);
-	unregister_chrdev_region(MKDEV(major, 0), NUM_DEVICES);
+	unregister_chrdev_region(MKDEV(major, 0), numDevices);
 	return;
 }
 
@@ -262,14 +261,14 @@ static int __init kachu_init(void){
 	int i, result;
 	i = result = 0;
 	
-	// if (NUM_DEVICES <= 0) {
-	// 	printk(KERN_WARNING "Invalid number of devices passed = %d\n", NUM_DEVICES);
+	// if (numDevices <= 0) {
+	// 	printk(KERN_WARNING "Invalid number of devices passed = %d\n", numDevices);
 	// 	err = -EINVAL;	// Invalid argument
 	// 	return err;
 	// }
 	
 	/* Obtain a range minor numbers for the speified number of devices (starting with 0) */
-	result = alloc_chrdev_region(&dev, 0, NUM_DEVICES, driverName);
+	result = alloc_chrdev_region(&dev, 0, numDevices, driverName);
 	major = MAJOR(dev);
 	if (result < 0) {
 		printk(KERN_WARNING "kachu: cant get major\n");
@@ -285,13 +284,13 @@ static int __init kachu_init(void){
 	 * allocate the devices -- we can't have them static, as the number
 	 * can be specified at load time
 */	
-	kachuDevices = (struct asp_kachu *)kzalloc(NUM_DEVICES *sizeof(struct asp_kachu), GFP_KERNEL);
+	kachuDevices = (struct asp_kachu *)kzalloc(numDevices *sizeof(struct asp_kachu), GFP_KERNEL);
 	// if(!kachuDevices) {
 	// 	result = -ENOMEM;
 	// 	goto fail;
 	// }
         /* Initialize each device. */
-	for(i=0; i<NUM_DEVICES; i++){
+	for(i=0; i<numDevices; i++){
 		result = kachu_setup_cdev(&kachuDevices[i], i, kachuClass);
 		if(result){
 			// devToDestroy = i;
