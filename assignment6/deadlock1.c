@@ -19,54 +19,30 @@
 #define MODE1 1 
 #define MODE2 2
 
-int a=0;
-void *my_testing(void *args);
+void *funct(void *threadid) {
 
-int main(int argc, char *argv[]) {
-
-	int i;
-	
-	pthread_t tid[2];
-	for(i=1;i<3;i++) 
-		pthread_create(&tid[i],NULL,&my_testing,NULL);
-
-	
-	for(i=1;i<3;i++)		
-		pthread_join(tid[i],NULL);
-
-	printf("Threads exiting\n");
-	
-	return 0;
-}
-
-
-void *my_testing(void *args) {
-
-	char dev_path[20];
-	char write_buf[100];
-	sprintf(dev_path, "%s", DEVICE);
-	int rc,mode,fd;
-	a++;
-	printf("Thread %d entered\n",a);
-	fd = open(dev_path, O_RDWR);
-	
+	int rc, fd;
+	long tid = (long) threadid;
+	printf("Thread %d\n", tid);
+	fd = open(DEVICE, O_RDWR);
+	sleep(0.5);	
 	if(fd == -1) {
-		printf("File %s either does not exist or has been locked by another ""process\n", DEVICE);
+		printf("File %s does not exist. Exiting!!\n", DEVICE);
 		exit(-1);
 	}
-
-
-	if(a==1) {
-		write(fd, write_buf, sizeof(write_buf));
-	}
-	if(a==2) {
-		write(fd, write_buf, sizeof(write_buf));
-	}
-
-	usleep(500000);
-
 	rc = ioctl(fd, E2_IOCMODE2, 1);
-
 	close(fd);
 	pthread_exit(NULL);
+}
+
+int main(int argc, char *argv[]) {
+	long i, j;
+	pthread_t tid[2];
+
+	for(i = 0; i<2; i++) 
+		pthread_create(&tid[i], NULL, funct, (void *) i);
+	for(j = 0; j<2; j++)		
+		pthread_join(tid[j],NULL);
+
+	return 0;
 }
