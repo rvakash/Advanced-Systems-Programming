@@ -18,12 +18,12 @@
 
 #define MODE1 1 
 #define MODE2 2
+int tid =0;
 
-void *funct(void *threadid) {
+void *funct(void *th) {
 
 	int rc, fd;
-	long tid = (long) threadid;
-	printf("Thread %d\n", tid);
+	printf("Thread %d\n", tid++);
 	fd = open(DEVICE, O_RDWR);
 	sleep(0.5);	
 	if(fd == -1) {
