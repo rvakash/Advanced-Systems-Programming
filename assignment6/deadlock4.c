@@ -39,11 +39,11 @@ void *func2(void *arg){
 }
 
 int main(int argc, char *argv[]){
-	int barrier, i;
+	int barr, i;
 	pthread_t tid1;
 	pthread_t tid2[2];
 
-	barrier = pthread_barrier_init(&barrier, NULL, 2);
+	barr = pthread_barrier_init(&barrier, NULL, 2);
 
 	pthread_create(&(tid1), NULL, funct, NULL);
 	for(i = 0; i<2; i++){
