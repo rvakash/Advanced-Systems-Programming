@@ -1,0 +1,34 @@
+/************************************************************************************
+This file gives a brief overview of the problem, the files included and instructions to run the program
+Read ProblemStatement.pdf for the detailed problem description.
+Author : Akash R Vasishta
+UFID   : 53955080
+*************************************************************************************/
+
+I. Problem Statement
+--------------------
+Implement the Producer Consumer problem using multiple threads. The problem describes two processes, the producer and the consumer, who share a common, fixed-size buffer used as a queue. The producer's job is to generate data, put it into the buffer, and start again. At the same time, the consumer is consuming the data (i.e., removing it from the buffer), one piece at a time. The problem is to make sure that the producer won't try to add data into the buffer if it's full and that the consumer won't try to remove data from an empty buffer.
+
+The solution should be free of race conditions and deadlocks. Thread synchronization primitives such as mutexes, condition variables and/or semaphores can be used.
+
+II. Files Included
+-----------------
+
+Combiner.c	 - Implements Producer-Consumer design to the previous mapper reducer problem
+Makefile 	 - Consists of all necessary commands to run the "Combiner" program in one step
+input.txt	 - This file has a list of inputs to the "Combiner" program
+
+
+III. How to run the Combiner
+---------------------------
+
+Command Line Arguments and outputs
+
+Step1 : make
+Step2 : ./Combiner <Number of Slots> <Number of unique UserIDs> < <Input file>
+
+
+IV. Description
+---------------
+
+Read ProblemStatement.pdf
