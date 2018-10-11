@@ -1,1 +1,0 @@
-(0000,P,history        ),(0000,D,history        ),(0000,L,art            ),(0000,C,cosmetics      ),(0000,S,entertainment  ),(0000,P,sports         ),(0000,L,photography    )
