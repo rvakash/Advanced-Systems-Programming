@@ -1,9 +1,14 @@
-#__Simple Character Device Driver__
-
-###__Problem Statement__
+# __Simple Character Device Driver__
+/************************************************************************************
+This file gives a brief overview of the problem and instructions to run the program
+Read ProblemStatement.pdf for the detailed problem description.
+Author : Akash R Vasishta
+UFID   : 53955080
+*************************************************************************************/
+### __Problem Statement__
 Write a simple character device driver which supports read, write, lseek and ioctl commands
 
-###__Instructions to run the module__
+### __Instructions to run the module__
 
 Copy the files char_driver.c, Makefile and userapp.c to a virtual Linux machine
 and follow the below steps:
