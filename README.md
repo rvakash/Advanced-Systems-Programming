@@ -15,7 +15,7 @@ The problem describes two threads, the producer and the consumer, who share a co
 ### __3. Producer Consumer Using Semaphore__
 Implement the above described Producer Consumer problem using thread synchronization primitives such as semaphores.
 
-### __4. ProducerConsumer_UsingMMAP__
+### __4. ProducerConsumer Using MMAP__
 Implement the above described Producer Consumer problem using any thread synchronization primitives. mmap system call with anonymous mapping (no backing file) should be used to set up the shared region.
 
 ### __5. Simple Character Device Driver__
