@@ -1,14 +1,9 @@
 # __Simple Character Device Driver__
-/************************************************************************************
-
 This file gives a brief overview of the problem and instructions to run the program
 Read ProblemStatement.pdf for the detailed problem description.
+* Author : Akash R Vasishta
+* UFID   : 53955080
 
-Author : Akash R Vasishta
-
-UFID   : 53955080
-
-*************************************************************************************/
 ### __Problem Statement__
 Write a simple character device driver which supports read, write, lseek and ioctl commands
 
