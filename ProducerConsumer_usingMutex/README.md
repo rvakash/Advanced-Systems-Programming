@@ -22,5 +22,5 @@ Implement the Producer Consumer problem using multiple threads. The problem desc
 2. $ ./Combiner \<Number of Slots\> \<Number of unique UserIDs\> \<Input file\>
 
 --------------------
-## __IV. Description__
+### __IV. Description__
 Read ProblemStatement.pdf
