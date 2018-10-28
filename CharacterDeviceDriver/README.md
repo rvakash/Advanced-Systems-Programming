@@ -1,9 +1,3 @@
-/************************************************************************************
-This file gives a brief overview of the problem and instructions to run the program
-Read ProblemStatement.pdf for the detailed problem description.
-Author : Akash R Vasishta
-UFID   : 53955080
-*************************************************************************************/
 #__Simple Character Device Driver__
 
 ###__Problem Statement__
