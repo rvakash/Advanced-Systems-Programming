@@ -14,7 +14,7 @@ mmap system call with anonymous mapping (no backing file) should be used to set 
 __Note__ -
 Accessing memory mapped files is faster than using direct read and write operations for two reasons. Firstly, a system call is orders of magnitude slower than a simple change to a program's local memory. Secondly, in most operating systems the memory region mapped actually is the kernel's page cache (file cache), meaning that no copies need to be created in user space.
 
-<img src="http://androidsrc.net/wp-content/uploads/2015/02/PCP_AndroidSRC.net_.png" width="400" height="300" /><img src="https://pages.mtu.edu/~shene/NSF-3/e-Book/SEMA/DIAGRAM-producer.jpg" width="400" height="300" />
+<img src="http://androidsrc.net/wp-content/uploads/2015/02/PCP_AndroidSRC.net_.png" width="350" height="250" /><img src="https://pages.mtu.edu/~shene/NSF-3/e-Book/SEMA/DIAGRAM-producer.jpg" width="350" height="250" />
 
 --------------------
 ## __II. Files Included__
