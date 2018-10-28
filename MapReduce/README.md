@@ -25,5 +25,5 @@ MapReduce is a framework to write applications to process huge amounts of data, 
 3. $ gcc combinerP1.c -o combinerP1.out
 4. $ ./combinerP1.out ./input.txt
 
-### __Outputs:__
+### __IV. Outputs:__
 The Reduced tuples are displayed on the standard output.
