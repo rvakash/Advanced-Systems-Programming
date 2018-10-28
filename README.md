@@ -24,7 +24,7 @@ Write a simple character device driver which supports read, write, lseek and ioc
 ### __6. Find Concurrency Errors in the Driver__
 The task here is to find deadlocks and race conditions in the provided character device driver. Write test cases that expose different potential deadlock scenarios. For race conditions, perform a code review and come up with different pairs of critical regions which may run in parallel.
 
-## __7. USB Keyboard Driver__
+### __7. USB Keyboard Driver__
 Introduced two new modes of operation for CAPSLOCK and NUMLOCK in the Linux USB keyboard driver (usbkbd.c). 
 * __Mode 1:__ Default behavior of the driver
 * __Mode 2:__ This mode is activated when NUMLOCK is pressed and CAPSLOCK is not on. When transitioning to Mode 2, the CAPSLOCK led will be turned on automatically. In Mode 2, the functionality of CAPSLOCK is reversed. i.e. when CAPSLOCK led is on the charaters typed will be in lower case and when CAPSLOCK led is off the characters typed will be in upper case. 
