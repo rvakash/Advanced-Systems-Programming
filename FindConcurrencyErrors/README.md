@@ -106,6 +106,6 @@ e2_ioctl() - case E2_IOCMODE2:
 				}
 				devc->mode = MODE2;
                 devc->count1--;
-                devc->count2++;```
-		
+                devc->count2++;
+```
 We are trying to read from count1 and mode. This is a critical region and it is protected by sem1. If 2 or more threads try to change mode to mode 2 without the sem1 semaphore it becomes a data race. we are calling down(sem1) and then reading or updating count1 and count2 and mode and then calling up(sem1). This has prevented a data race from occuring.
