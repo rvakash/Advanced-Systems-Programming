@@ -6,7 +6,7 @@ Read ProblemStatement.pdf for the detailed problem description.
 
 --------------------
 ### __I. Problem Statement__
-Introduced two new modes of operation for CAPSLOCK and NUMLOCK in the Linux USB keyboard driver (usbkbd.c). 
+Introduce two new modes of operation for CAPSLOCK and NUMLOCK in the Linux USB keyboard driver (usbkbd.c). 
 * __Mode 1:__ Default behavior of the driver
 * __Mode 2:__ This mode is activated when NUMLOCK is pressed and CAPSLOCK is not on. When transitioning to Mode 2, the CAPSLOCK led will be turned on automatically. In Mode 2, the functionality of CAPSLOCK is reversed. i.e. when CAPSLOCK led is on the charaters typed will be in lower case and when CAPSLOCK led is off the characters typed will be in upper case. 
 
