@@ -20,12 +20,12 @@
 #define MODE2 2
 int tid =0;
 
-void *funct(void *th) {
+void *funct(void *th){
 
 	int rc, fd;
 	printf("Thread %d\n", tid++);
 	fd = open(DEVICE, O_RDWR);
-	sleep(0.5);	
+	sleep(0.6);	
 	if(fd == -1) {
 		printf("File %s does not exist. Exiting!!\n", DEVICE);
 		exit(-1);
@@ -35,7 +35,7 @@ void *funct(void *th) {
 	pthread_exit(NULL);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]){
 	long i, j;
 	pthread_t tid[2];
 

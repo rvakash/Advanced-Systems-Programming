@@ -20,7 +20,7 @@
 #define MODE2 2
 int tid =0;
 
-void *funct(void *args) {
+void *funct(void *args){
 	int r,fd;
 	printf("Thread %d\n", tid++);
 	fd = open(DEVICE, O_RDWR);
@@ -30,16 +30,16 @@ void *funct(void *args) {
 	pthread_exit(NULL);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]){
 
 	int i, r, fd;
 	pthread_t tid[2];
 	fd = open(DEVICE, O_RDWR);
 	r = ioctl(fd, E2_IOCMODE2, 2);
 	sleep(0.5);
-	for(i = 1; i<3; i++) 
+	for(i = 0; i<2; i++) 
 		pthread_create(&tid[i],NULL,&funct,NULL);  
-	for(i = 1; i<3; i++)		
+	for(i = 0; i<2; i++)		
 		pthread_join(tid[i],NULL);	
 	return 0;
 }
