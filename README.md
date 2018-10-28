@@ -1,17 +1,16 @@
 # Advanced-Systems-Programming
-EEL 5733/4732 Advanced Systems Programming.
-
-Department of Electrical and Computer Engineering.
-
-University of Florida
-
+EEL 5733/4732 Advanced Systems Programming.  
+Department of Electrical and Computer Engineering.  
+University of Florida  
 This repository contains all the projects that I did as a part of my course work.
 
 ### __1. Map-Reduce__
 The algorithm contains two important tasks, namely Map and Reduce. Map takes a set of data and converts it into another set of data, where individual elements are broken down into tuples (key/value pairs). Secondly, reduce task, which takes the output from a map as an input and combines those data tuples into a smaller set of tuples. Combiner program makes use of fork, exec, pipe and dup2 system calls and combines the two Map-Reduce programs.
 
+
 ### __2. Producer Consumer Using Mutex__
 The problem describes two threads, the producer and the consumer, who share a common, fixed-size buffer used as a queue. The producer's job is to generate data, put it into the buffer, and start again. At the same time, the consumer is consuming the data (i.e., removing it from the buffer), one piece at a time. The solution should be free of race conditions and deadlocks. Thread synchronization primitives such as mutexes, condition variables can be used.
+
 
 ### __3. Producer Consumer Using Semaphore__
 Implement the above described Producer Consumer problem using thread synchronization primitives such as semaphores.
