@@ -25,7 +25,7 @@ Accessing memory mapped files is faster than using direct read and write operati
 --------------------
 ## __III. How to run the Combiner__
 1. $ make
-2. $ ./Combiner <Number of Slots> <Number of unique UserIDs> < <Input file>
+2. $ ./Combiner \<Number of Slots\> \<Number of unique UserIDs\> \<Input file\>
 
 --------------------
 ## __IV. Description__
